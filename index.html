@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>台南老街介紹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", sans-serif;
+      background: #f7f7f7;
+      color: #333;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffffd9;
+      backdrop-filter: blur(6px);
+      padding: 14px 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    nav a {
+      margin-left: 18px;
+      text-decoration: none;
+      color: #444;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      color: #000;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1559113614-2ec87a6f30b0?q=80&w=2000&auto=format') center/cover no-repeat;
+      height: 45vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .hero h2 {
+      font-size: 2.4rem;
+      background: rgba(0,0,0,0.25);
+      padding: 12px 22px;
+      border-radius: 12px;
+    }
+
+    .container {
+      max-width: 1100px;
+      padding: 24px;
+      margin: auto;
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .map-box {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      margin-bottom: 60px;
+    }
+
+    .toggle {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 16px;
+      cursor: pointer;
+      transition: 0.25s;
+      margin-bottom: 20px;
+    }
+    .toggle:hover {
+      background: #fafafa;
+    }
+
+    .hidden-section {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.4s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 0;
+      color: #777;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>台南老街導覽介紹</h1>
+    <nav>
+      <a href="#map">地圖</a>
+      <a href="#history">歷史</a>
+      <a href="#about">關於</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>走進台南老街的時光縫隙</h2>
+  </section>
+
+  <div class="container">
+    <p class="intro">
+      台南老街是一段段時光的層疊。漫步其中，彷彿能聽見老匠人的節奏、街屋的呼吸，以及城市最初的脈動。這裡是一張你可以慢慢展開的故事地圖。
+    </p>
+
+    <div id="map" class="map-box">
+      <iframe src="https://uploads.knightlab.com/storymapjs/2b1f325bdea072bbf31328fa6e3d8e2f/tai-nan-lao-jie-jie-shao/index.html" frameborder="0" width="100%" height="800"></iframe>
+    </div>
+
+    <div id="history" class="toggle">台南老街小歷史</div>
+    <div class="hidden-section">
+      <p class="intro">
+        台南自古為府城，街道以商業、宗教與民居交織而成。從巷弄的彎曲形狀，你能看見清代的城廓痕跡；從老屋的窗櫺雕飾，你能讀懂時代的審美；從庶民的味道，你能理解城市如何被記憶與人情味撐起來。
+      </p>
+    </div>
+
+    <div id="about" class="toggle">關於本頁面</div>
+    <div class="hidden-section">
+      <p class="intro">
+        這是一個為呈現台南老街故事而打造的小網站，透過 StoryMap 搭配緩和柔和的視覺呈現，希望讓你能像散步般閱讀這座城市。
+      </p>
+    </div>
+  </div>
+
+  <footer>大傳三A 鍾O純製作
+  <br>
+  © 2025 台南老街導覽頁
+  </footer>
+
+  <script>
+    const toggles = document.querySelectorAll('.toggle');
+    toggles.forEach((btn) => {
+      const content = btn.nextElementSibling;
+      btn.addEventListener('click', () => {
+        if (content.style.height && content.style.height !== '0px') {
+          content.style.height = '0px';
+        } else {
+          content.style.height = content.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
